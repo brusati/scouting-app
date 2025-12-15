@@ -160,7 +160,7 @@ def train_models(df, min_minutes, n_neighbors, n_clusters):
     df_filtered['PC2'] = X_pca_coords[:, 1]
     
     # 6. KNN
-    nn = NearestNeighbors(n_neighbors=n_neighbors, metric="mahalanobis")
+    nn = NearestNeighbors(n_neighbors=n_neighbors, metric="cosine")
     nn.fit(X_scaled)
     
     return df_filtered, X_scaled, nn, pca, features
